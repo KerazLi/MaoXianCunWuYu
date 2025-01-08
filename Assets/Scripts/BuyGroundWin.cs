@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class BuyGroundWin : MonoBehaviour
 {
     public static BuyGroundWin _instance;
-    private Button buyButton;
-    private Button closeButton;
+    public Button buyButton;
+    public Button closeButton;
+
     
 
     private void Awake()
@@ -16,10 +17,12 @@ public class BuyGroundWin : MonoBehaviour
         if (_instance==null)
         {
             _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        buyButton=transform.Find("BuyButton").GetComponent<Button>();
-        closeButton=transform.Find("CloseBtn").GetComponent<Button>();
-        Hide();
+        else
+        {
+            Destroy(gameObject);
+        }
         
     }
 
@@ -28,17 +31,23 @@ public class BuyGroundWin : MonoBehaviour
     {
         buyButton.onClick.AddListener(BuyGround);
         closeButton.onClick.AddListener(Hide);
-        Hide();
+        /*buyButton.onClick.AddListener(BuyGround);
+        closeButton.onClick.AddListener(Hide);*/
+        //closeButton=transform.Find("CloseBtn").GetComponent<Button>();
+        //Hide();
     }
+    
     
     
     public void Show()
     {
         gameObject.SetActive(true);
+        
     }
 
-    private void BuyGround()
+    public void BuyGround()
     {
+        print("购买");
         if (PlayerProp._instance )
         {
             if (GameController._instance)
@@ -50,6 +59,7 @@ public class BuyGroundWin : MonoBehaviour
                     //变更土地状态
                     GameController._instance._currentSelectGroundProperties.State = 1;
                     print("购买成功");
+                    UIManager._instance.ShowPlayerPropUI();
                     Hide();
                 }
                 else
@@ -70,7 +80,7 @@ public class BuyGroundWin : MonoBehaviour
 
     }
 
-    private void Hide()
+    public void Hide()
     {
         gameObject.SetActive(false);
     }

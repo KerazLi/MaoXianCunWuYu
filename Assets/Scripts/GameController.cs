@@ -49,12 +49,20 @@ public class GameController : MonoBehaviour
             {
                 if (_currentSelectGroundProperties.State==0)
                 {
-                    BuyGroundWin._instance.Show();
+                    //BuyGroundWin._instance.Show();
+                    UIManager._instance.ShowBuyGroundWin();
+                                                                             
                     print(0);
                 }else if (_currentSelectGroundProperties.State==1)
                 {
+                    //UIManager._instance.ShowBuildPanel();
                     //显示建造窗口
-                    print(1);
+                    
+                    BuildPanel._instance.ShowBuildTypeList();
+                    print(1);  
+                    
+
+                    
                 }
             }
             else
