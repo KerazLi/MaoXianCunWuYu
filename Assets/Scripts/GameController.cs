@@ -17,7 +17,6 @@ public class GameController : MonoBehaviour
         {
             _instance = this;
         }
-        
         SelectGroundTip = GameObject.Find("SelectTip");
     }
 
