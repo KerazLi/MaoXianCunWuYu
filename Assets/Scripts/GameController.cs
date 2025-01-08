@@ -8,11 +8,13 @@ public class GameController : MonoBehaviour
     public static GameController _instance;
     //土地信息
     public GroundProperties _currentSelectGroundProperties;
+    private GameObject SelectGroundTip;
     
     // Start is called before the first frame update
     private void Awake()
     {
         _instance = this;
+        SelectGroundTip = GameObject.Find("SelectTip");
     }
 
     // Update is called once per frame
@@ -30,7 +32,10 @@ public class GameController : MonoBehaviour
             {
                 //print("Ground");
                 _currentSelectGroundProperties = hit.collider.GetComponent<GroundProperties>();
-                print(hit.collider.name);
+                SelectGroundTip.transform.position = hit.collider.transform.position;
+                SelectGroundTip.transform.localScale = new Vector3(hit.collider.transform.localScale.x / 3, 1,
+                    hit.collider.transform.localScale.z / 3);
+
                 //print(_currentSelectGroundProperties.State);
             }
         }

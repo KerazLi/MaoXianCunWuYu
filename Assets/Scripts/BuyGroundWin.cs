@@ -8,6 +8,7 @@ public class BuyGroundWin : MonoBehaviour
     public static BuyGroundWin _instance;
     private Button buyButton;
     private Button closeButton;
+    
 
     private void Awake()
     {
