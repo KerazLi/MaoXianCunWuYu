@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,14 @@ public class BuyGroundWin : MonoBehaviour
 
     private void Awake()
     {
-        _instance = this;
+        if (_instance==null)
+        {
+            _instance = this;
+        }
         buyButton=transform.Find("BuyButton").GetComponent<Button>();
         closeButton=transform.Find("CloseBtn").GetComponent<Button>();
+        Hide();
+        
     }
 
     // Start is called before the first frame update
@@ -22,7 +28,7 @@ public class BuyGroundWin : MonoBehaviour
     {
         buyButton.onClick.AddListener(BuyGround);
         closeButton.onClick.AddListener(Hide);
-        gameObject.SetActive(false);
+        Hide();
     }
     
     
@@ -48,8 +54,7 @@ public class BuyGroundWin : MonoBehaviour
                 }
                 else
                 {
-                    //TODO:出现提示金币不足
-                    print("金币不足");
+                    Tip._instance.Show();
                 } 
             }else 
             {

@@ -10,7 +10,11 @@ public class PlayerPropUI : MonoBehaviour
 
     private void Awake()
     {
-        _instace = this;
+        if (_instace==null)
+        {
+            _instace = this;
+        }
+        
     }
 
     private void Start()

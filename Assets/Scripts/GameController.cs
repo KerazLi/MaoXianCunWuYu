@@ -13,7 +13,11 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        _instance = this;
+        if (_instance==null)
+        {
+            _instance = this;
+        }
+        
         SelectGroundTip = GameObject.Find("SelectTip");
     }
 
@@ -46,7 +50,6 @@ public class GameController : MonoBehaviour
             {
                 if (_currentSelectGroundProperties.State==0)
                 {
-                    //TODO:购买土地的提示框
                     BuyGroundWin._instance.Show();
                     print(0);
                 }else if (_currentSelectGroundProperties.State==1)
