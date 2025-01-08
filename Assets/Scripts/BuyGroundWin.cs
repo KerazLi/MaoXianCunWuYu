@@ -21,6 +21,7 @@ public class BuyGroundWin : MonoBehaviour
     {
         buyButton.onClick.AddListener(BuyGround);
         closeButton.onClick.AddListener(Hide);
+        gameObject.SetActive(false);
     }
     
     

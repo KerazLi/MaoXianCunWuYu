@@ -6,7 +6,7 @@ public class PlayerProp : MonoBehaviour
 {
     public static PlayerProp _instance;
 
-    private int _coin = 200;
+    private int _coin = 1000;
 
     public int Coin
     {
