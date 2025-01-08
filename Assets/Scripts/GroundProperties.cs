@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class GroundProperties : MonoBehaviour
 {
-    //土地状态 0 未购买，1 购买
-    public int State = 0; 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //土地状态 0 未购买，1 购买,2 建造
+    public int State = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int price = 200;
+    // Start is called before the first frame update
 }
